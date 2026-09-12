@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { ShieldCheck, Download, FileText, CheckCircle2, ChevronRight } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export default function ProductsPage() {
   const [activeTab, setActiveTab] = useState<'extinguishers' | 'suppression' | 'pumps' | 'alarms'>('extinguishers');
@@ -33,7 +33,7 @@ export default function ProductsPage() {
                 : 'bg-slate-900 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
             }`}
           >
-            Portable Fire Extinguishers (BS-EN3)
+            Portable Fire Extinguishers & Trolleys
           </button>
           <button
             onClick={() => setActiveTab('suppression')}
@@ -53,7 +53,7 @@ export default function ProductsPage() {
                 : 'bg-slate-900 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
             }`}
           >
-            Tohatsu Fire Pumps & Hoses
+            Fire Pumps, Hoses & Fittings
           </button>
           <button
             onClick={() => setActiveTab('alarms')}
@@ -67,38 +67,37 @@ export default function ProductsPage() {
           </button>
         </div>
 
-        {/* TAB 1: PORTABLE EXTINGUISHERS */}
+        {/* TAB 1: EXTINGUISHERS */}
         {activeTab === 'extinguishers' && (
           <div className="space-y-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">
               <div className="space-y-4">
-                <span className="text-xs font-semibold text-red-400 uppercase tracking-wider">BS-EN3 Certified</span>
-                <h2 className="text-2xl font-bold text-white">Carbon Dioxide ($\text{CO}_2$) Extinguishers</h2>
+                <span className="text-xs font-semibold text-red-400 uppercase tracking-wider">BS-EN3 Certified Range</span>
+                <h2 className="text-2xl font-bold text-white">Portable Extinguishers & Mobile Trolleys</h2>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Specifically engineered for electrical fire risks and flammable liquid hazards. Leaves zero residue, protecting sensitive electronic devices, server rooms, and heavy industrial machinery.
+                  Complete line of portable fire extinguishers including Carbon Dioxide (CO₂), ABC Dry Powder, AFFF Foam, Water, and Clean Agent units, engineered for high performance in commercial and industrial settings.
                 </p>
                 <div className="space-y-2 pt-2">
                   <div className="flex items-center gap-2 text-xs text-slate-300">
                     <CheckCircle2 className="h-4 w-4 text-red-500 shrink-0" />
-                    <span>Non-conductive, clean-agent residue-free discharge</span>
+                    <span>BS-EN3, CE & KEBS certified pressure cylinders</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-slate-300">
                     <CheckCircle2 className="h-4 w-4 text-red-500 shrink-0" />
-                    <span>Seamless alloy steel cylinder with frost-free horn</span>
+                    <span>Comprehensive capacities: 1kg to 9kg handheld, 25kg to 50kg wheeled trolley units</span>
                   </div>
                 </div>
                 <div className="pt-4 flex gap-3">
-                  <a href="/contact" className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-md transition-colors">
-                    Request Quote / Bulk Order
+                  <a href="/contact" className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-md transition-colors flex items-center gap-2">
+                    Request Bulk Quote <ArrowRight className="h-3.5 w-3.5" />
                   </a>
                 </div>
               </div>
 
-              {/* Product Image Stage */}
               <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 flex justify-center items-center h-80 relative">
                 <Image
-                  src="/images/products/extinguisher-co2.jpg"
-                  alt="Nimrod CO2 Fire Extinguisher"
+                  src="/images/extinguisher-co2.jpg"
+                  alt="Nimrod Fire Extinguishers"
                   fill
                   className="object-contain p-4"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -106,34 +105,43 @@ export default function ProductsPage() {
               </div>
             </div>
 
-            {/* Spec Table */}
+            {/* Specifications Table */}
             <div>
-              <h3 className="text-sm font-bold text-slate-200 uppercase tracking-wider mb-4">Technical Specifications</h3>
+              <h3 className="text-sm font-bold text-slate-200 uppercase tracking-wider mb-4">Extinguisher Specifications</h3>
               <div className="overflow-x-auto border border-slate-800 rounded-lg">
                 <table className="w-full text-left text-xs text-slate-300">
                   <thead className="bg-slate-900 text-slate-200 uppercase font-semibold border-b border-slate-800">
                     <tr>
-                      <th className="p-3">Model Capacity</th>
-                      <th className="p-3">Fire Rating</th>
-                      <th className="p-3">Working Pressure</th>
-                      <th className="p-3">Standard Certification</th>
-                      <th className="p-3">Ideal Application</th>
+                      <th className="p-3">Type</th>
+                      <th className="p-3">Available Capacities</th>
+                      <th className="p-3">Fire Class Rating</th>
+                      <th className="p-3">Primary Application</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800 bg-slate-950">
                     <tr>
-                      <td className="p-3 font-semibold text-white">2 KG $\text{CO}_2$</td>
-                      <td className="p-3">34B</td>
-                      <td className="p-3">174 Bar</td>
-                      <td className="p-3">BS-EN3 / CE / KEBS</td>
-                      <td className="p-3">Server rooms, offices, electrical panels</td>
+                      <td className="p-3 font-semibold text-white">Carbon Dioxide (CO₂)</td>
+                      <td className="p-3">2 KG, 5 KG</td>
+                      <td className="p-3">Class B, Electrical</td>
+                      <td className="p-3">Server rooms, control panels, laboratories</td>
                     </tr>
                     <tr>
-                      <td className="p-3 font-semibold text-white">5 KG $\text{CO}_2$</td>
-                      <td className="p-3">70B</td>
-                      <td className="p-3">174 Bar</td>
-                      <td className="p-3">BS-EN3 / CE / KEBS</td>
-                      <td className="p-3">Industrial plants, factories, generator rooms</td>
+                      <td className="p-3 font-semibold text-white">ABC Dry Powder</td>
+                      <td className="p-3">1 KG, 2 KG, 6 KG, 9 KG, 25 KG, 50 KG</td>
+                      <td className="p-3">Class A, B, C, Electrical</td>
+                      <td className="p-3">Factories, warehouses, commercial transport</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-semibold text-white">AFFF Foam</td>
+                      <td className="p-3">6 Litres, 9 Litres</td>
+                      <td className="p-3">Class A, B</td>
+                      <td className="p-3">Fuel stations, chemical stores, workshops</td>
+                    </tr>
+                    <tr>
+                      <td className="p-3 font-semibold text-white">Water / Water Mist</td>
+                      <td className="p-3">9 Litres</td>
+                      <td className="p-3">Class A</td>
+                      <td className="p-3">Paper, wood, textile hazards</td>
                     </tr>
                   </tbody>
                 </table>
@@ -147,22 +155,22 @@ export default function ProductsPage() {
           <div className="space-y-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">
               <div className="space-y-4">
-                <span className="text-xs font-semibold text-red-400 uppercase tracking-wider">Aerosol Suppression Technology</span>
-                <h2 className="text-2xl font-bold text-white">Pyrogen Engineered Suppression Systems</h2>
+                <span className="text-xs font-semibold text-red-400 uppercase tracking-wider">Aerosol & Clean Agent Suppression</span>
+                <h2 className="text-2xl font-bold text-white">Pyrogen Engineered Fire Suppression Systems</h2>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Environmentally safe solid aerosol fire extinguishing technology. Pyrogen systems activate rapidly upon detection, extinguishing fires at a chemical level without oxygen depletion or pressure spikes.
+                  Solid aerosol and clean-agent chemical fire suppression systems designed to protect high-value electronic assets, server infrastructure, and switchgear without leaving residue or causing thermal shock.
                 </p>
                 <div className="pt-4 flex gap-3">
-                  <a href="/contact" className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-md transition-colors">
-                    Schedule Technical Site Survey
+                  <a href="/contact" className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-md transition-colors flex items-center gap-2">
+                    Request Engineering Survey <ArrowRight className="h-3.5 w-3.5" />
                   </a>
                 </div>
               </div>
 
               <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 flex justify-center items-center h-80 relative">
                 <Image
-                  src="/images/products/pyrogen-system.jpg"
-                  alt="Pyrogen Engineered System"
+                  src="/images/extinguisher-clearagent.jpg"
+                  alt="Clean Agent & Pyrogen System"
                   fill
                   className="object-contain p-4"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -172,27 +180,27 @@ export default function ProductsPage() {
           </div>
         )}
 
-        {/* TAB 3: PUMPS & HOSES */}
+        {/* TAB 3: PUMPS & FITTINGS */}
         {activeTab === 'pumps' && (
           <div className="space-y-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">
               <div className="space-y-4">
-                <span className="text-xs font-semibold text-red-400 uppercase tracking-wider">Authorized Distributor</span>
-                <h2 className="text-2xl font-bold text-white">Tohatsu Portable Fire Pumps</h2>
+                <span className="text-xs font-semibold text-red-400 uppercase tracking-wider">High Discharge Water Delivery</span>
+                <h2 className="text-2xl font-bold text-white">Portable Fire Pumps, Hoses & Hydrant Fittings</h2>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Engineered in Japan, Tohatsu portable fire pumps deliver unmatched reliability, high discharge pressure, and compact transportability for emergency municipal, airport, and industrial response teams.
+                  Portable fire pumps, lay-flat delivery hoses, hose reels, landing valves, and heavy-duty hydrants engineered for high-pressure emergency response across industrial and municipal sites.
                 </p>
                 <div className="pt-4 flex gap-3">
-                  <a href="/contact" className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-md transition-colors">
-                    Request Spec Sheet & Pricing
+                  <a href="/contact" className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-md transition-colors flex items-center gap-2">
+                    Request Technical Pricing <ArrowRight className="h-3.5 w-3.5" />
                   </a>
                 </div>
               </div>
 
               <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 flex justify-center items-center h-80 relative">
                 <Image
-                  src="/images/products/pump-tohatsu.jpg"
-                  alt="Tohatsu Fire Pump"
+                  src="/images/1551206.jpg"
+                  alt="Fire Pumps & Water Fittings"
                   fill
                   className="object-contain p-4"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -204,25 +212,52 @@ export default function ProductsPage() {
 
         {/* TAB 4: ALARMS */}
         {activeTab === 'alarms' && (
-          <div className="space-y-8">
+          <div className="space-y-12">
+            {/* Addressable Panel */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">
               <div className="space-y-4">
-                <span className="text-xs font-semibold text-red-400 uppercase tracking-wider">Early Detection Systems</span>
-                <h2 className="text-2xl font-bold text-white">Addressable & Conventional Fire Alarm Panels</h2>
+                <span className="text-xs font-semibold text-red-400 uppercase tracking-wider">Intelligent Multi-Zone Warning</span>
+                <h2 className="text-2xl font-bold text-white">Addressable Fire Alarm Systems</h2>
                 <p className="text-xs text-slate-300 leading-relaxed">
-                  Complete early-warning alarm networks featuring optical smoke sensors, heat detectors, manual call points, and multi-zone control panels for corporate towers and manufacturing complexes.
+                  Pinpoint exact detector locations during fire emergencies across complex, multi-story commercial facilities. Fully compatible with optical smoke sensors, thermal detectors, and manual call points.
                 </p>
-                <div className="pt-4 flex gap-3">
-                  <a href="/contact" className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-md transition-colors">
-                    Request System Integration Quote
+                <div className="pt-2">
+                  <a href="/contact" className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-md transition-colors inline-flex items-center gap-2">
+                    Quote Addressable System <ArrowRight className="h-3.5 w-3.5" />
                   </a>
                 </div>
               </div>
 
-              <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 flex justify-center items-center h-80 relative">
+              <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 flex justify-center items-center h-72 relative">
                 <Image
-                  src="/images/products/alarm-panel.jpg"
-                  alt="Fire Alarm Panel and Sensors"
+                  src="/images/addressable_panel.PNG"
+                  alt="Addressable Fire Alarm Panel"
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+
+            {/* Conventional Panel */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">
+              <div className="space-y-4">
+                <span className="text-xs font-semibold text-red-400 uppercase tracking-wider">Zone-Based Early Detection</span>
+                <h2 className="text-2xl font-bold text-white">Conventional Fire Alarm Systems</h2>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Dependable zone-based early warning alarm networks for small-to-medium offices, retail spaces, and standalone facilities. Feature robust battery backup and straightforward maintenance protocols.
+                </p>
+                <div className="pt-2">
+                  <a href="/contact" className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-semibold rounded-md transition-colors inline-flex items-center gap-2">
+                    Quote Conventional System <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 flex justify-center items-center h-72 relative">
+                <Image
+                  src="/images/conventional_panel.PNG"
+                  alt="Conventional Fire Alarm Panel"
                   fill
                   className="object-contain p-4"
                   sizes="(max-width: 768px) 100vw, 50vw"
