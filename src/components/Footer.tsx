@@ -21,16 +21,54 @@ export default function Footer() {
         <div>
           <p className="text-white font-bold text-sm mb-2">Quick Navigation</p>
           <ul className="space-y-1">
-            <li><Link href="/" className="hover:text-white">Home</Link></li>
-            <li><Link href="/products" className="hover:text-white">Products Catalog</Link></li>
-            <li><Link href="/compliance" className="hover:text-white">Compliance & Governance</Link></li>
-            <li><Link href="/contact" className="hover:text-white">Contact / Quote Form</Link></li>
+            <li>
+              <Link href="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/products" className="hover:text-white transition-colors">
+                Products Catalog
+              </Link>
+            </li>
+            <li>
+              <Link href="/compliance" className="hover:text-white transition-colors">
+                Compliance &amp; Governance
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:text-white transition-colors">
+                Contact / Quote Form
+              </Link>
+            </li>
+            <li>
+              {/* Direct anchor tag for PDF static file inside public/docs/ */}
+              <a
+                href="/docs/terms-and-conditions.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                Terms &amp; Conditions
+              </a>
+            </li>
           </ul>
         </div>
       </div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-4 border-t border-slate-900 text-center text-slate-500">
-        &copy; {new Date().getFullYear()} Nimrod Africa Ltd. All rights reserved.
+
+      {/* Footer Bottom Bar with Copyright & Terms Link */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-4 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-slate-500 gap-2">
+        <p>&copy; {new Date().getFullYear()} Nimrod Africa Ltd. All rights reserved.</p>
+        <div className="flex items-center space-x-4">
+          <a
+            href="/docs/terms-and-conditions.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-slate-300 transition-colors underline underline-offset-4"
+          >
+            Terms and Conditions
+          </a>
+        </div>
       </div>
     </footer>
   );
